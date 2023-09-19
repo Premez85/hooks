@@ -1,0 +1,10 @@
+.app {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.app button {
+    margin: 10px;
+}

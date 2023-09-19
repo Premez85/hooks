@@ -1,15 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import ReactDOM from 'react-dom/client';
-import {clear} from "@testing-library/user-event/dist/clear";
-
-
+import React, {useEffect, useState} from "react";
+import './app.css';
 
 const App = () => {
     const [color, setColor] = useState('white');
     const [fontSize, setFontSize] = useState(14);
     useEffect(() => console.log('only one'), []);
     useEffect(() => console.log('font size'), [fontSize]);
-    useEffect(() => console.log('color'), [color]);
     return (
 
         <div className="app" style={{backgroundColor: color, fontSize: fontSize}}>
@@ -22,25 +18,4 @@ const App = () => {
     );
 }
 
-const Notification = () => {
-    const [dis, setDis] = useState('display');
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-                setDis('none')
-            }
-            , 3000);
-        return () => clearTimeout(timeout);
-    }, [])
-    return (
-        <p style={{display: dis}}>Notification</p>
-    );
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App/>
-    <Notification/>
-  </React.StrictMode>
-);
-
+export default App;
